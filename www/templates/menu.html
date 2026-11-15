@@ -1,0 +1,42 @@
+<!-- menu lateral (igual ao modelo "sidemenu" da documentação do Ionic v1) -->
+<ion-side-menus enable-menu-with-back-views="false">
+
+  <!-- área principal: barra de cima + a tela da rota atual -->
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button></ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left" aria-label="Abrir menu"></button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <!-- menu da esquerda. no computador (tela grande) ele fica sempre aberto -->
+  <ion-side-menu side="left" expose-aside-when="large">
+    <ion-header-bar class="bar-positive">
+      <h1 class="title">
+        Portal do Aluno
+        <small>{{ aluno().nome }}</small>
+      </h1>
+    </ion-header-bar>
+
+    <ion-content>
+      <ion-list>
+        <ion-item menu-close href="#/app/noticias" class="item-icon-left">
+          <i class="icon ion-ios-paper-outline positive"></i> Mural
+        </ion-item>
+        <ion-item menu-close href="#/app/perfil" class="item-icon-left">
+          <i class="icon ion-person positive"></i> Meu cadastro
+        </ion-item>
+        <ion-item menu-close href="#/app/financeiro" class="item-icon-left">
+          <i class="icon ion-cash positive"></i> Financeiro
+        </ion-item>
+        <ion-item menu-close ng-click="sair()" class="item-icon-left">
+          <i class="icon ion-log-out assertive"></i> Sair
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
+</ion-side-menus>
