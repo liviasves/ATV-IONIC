@@ -1,0 +1,39 @@
+<!-- RF02 – mural de notícias e eventos -->
+<ion-view view-title="Mural UCSal">
+  <ion-content>
+    <div class="limitar">
+
+      <!-- botões de filtro. o ng-class pinta o que está escolhido -->
+      <div class="button-bar padding">
+        <button class="button button-small button-outline button-positive"
+          ng-class="{ ativo: filtro.categoria === '' }" ng-click="filtrar('')">Todas</button>
+        <button class="button button-small button-outline button-positive" ng-repeat="c in categorias"
+          ng-class="{ ativo: filtro.categoria === c }" ng-click="filtrar(c)">{{ c }}</button>
+      </div>
+
+      <!-- ng-repeat cria um card pra cada notícia. o filter mostra só a categoria escolhida -->
+      <div class="list card" ng-repeat="n in noticias | filter:{ categoria: filtro.categoria }">
+        <div class="item item-text-wrap">
+          <h2>{{ n.titulo }}</h2>
+          <p>
+            <i class="icon ion-calendar"></i> {{ n.data | date:'dd/MM/yyyy' }}
+            &nbsp;<span class="badge" ng-class="n.categoria === 'Evento' ? 'badge-positive' : 'badge-stable'">{{ n.categoria }}</span>
+          </p>
+        </div>
+
+        <div class="item item-image">
+          <img class="full-image" ng-src="{{ n.imagem }}" alt="Imagem ilustrativa: {{ n.titulo }}">
+        </div>
+
+        <div class="item item-text-wrap">
+          <p>{{ n.resumo }}</p>
+        </div>
+
+        <div class="item">
+          <button class="button button-block button-positive" ng-click="abrir(n)">Ler mais</button>
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

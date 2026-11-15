@@ -1,0 +1,24 @@
+<!-- RF02 – visualização completa de uma notícia ("Ler mais") -->
+<ion-view view-title="{{ noticia.categoria }}">
+  <ion-content>
+    <div class="limitar">
+      <div class="list card">
+        <div class="item item-image">
+          <img class="full-image" ng-src="{{ noticia.imagem }}" alt="Imagem ilustrativa: {{ noticia.titulo }}">
+        </div>
+
+        <div class="item item-text-wrap">
+          <h2>{{ noticia.titulo }}</h2>
+          <p>
+            <i class="icon ion-calendar"></i> {{ noticia.data | date:'dd/MM/yyyy' }}
+            &nbsp;<span class="badge" ng-class="noticia.categoria === 'Evento' ? 'badge-positive' : 'badge-stable'">{{ noticia.categoria }}</span>
+          </p>
+        </div>
+
+        <div class="item item-text-wrap">
+          <p>{{ noticia.conteudo }}</p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
