@@ -1,0 +1,48 @@
+<!-- RF04 – mensalidades por semestre -->
+<ion-view view-title="Financeiro">
+  <ion-content>
+    <div class="limitar">
+
+      <!-- seletor de semestre: o ng-model troca o filtro.semestre -->
+      <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">Semestre letivo</div>
+          <select ng-model="filtro.semestre" ng-options="s for s in semestres"></select>
+        </label>
+      </div>
+
+      <!-- resumo do semestre -->
+      <div class="card">
+        <div class="item item-text-wrap" ng-if="totalAPagar() > 0">
+          Total a pagar em {{ filtro.semestre }}: <strong>{{ totalAPagar() | currency:'R$ ' }}</strong>
+        </div>
+        <div class="item item-text-wrap balanced" ng-if="totalAPagar() === 0">
+          <i class="icon ion-checkmark-circled"></i> Tudo pago neste semestre!
+        </div>
+      </div>
+
+      <!-- ng-repeat cria uma linha pra cada mensalidade do semestre escolhido -->
+      <div class="list">
+        <div class="item item-text-wrap mensalidade" ng-repeat="m in mensalidades()">
+          <h2>{{ m.mes }}</h2>
+          <p>Vencimento: {{ m.vencimento | date:'dd/MM/yyyy' }}</p>
+          <p><strong>{{ m.valor | currency:'R$ ' }}</strong></p>
+
+          <!-- ng-class: verde se paga, laranja se a pagar -->
+          <span class="badge" ng-class="{ 'badge-balanced': m.status === 'Paga', 'badge-energized': m.status === 'A Pagar' }">
+            {{ m.status }}
+          </span>
+
+          <!-- ng-if: o código e o botão só aparecem nas parcelas a pagar -->
+          <div ng-if="m.status === 'A Pagar'">
+            <p class="codigo">{{ m.codigo }}</p>
+            <button class="button button-small button-calm" ng-click="copiar(m)">
+              <i class="icon ion-clipboard"></i> Copiar Código de Barras
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>
