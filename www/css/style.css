@@ -1,0 +1,166 @@
+/*
+  cores da UCSal em variáveis CSS.
+  o Ionic v1 usa variáveis SASS ($positive...) pra gerar o ionic.css; como uso o css já pronto,
+  coloquei as cores aqui e apliquei nas classes "positive" e "calm" do Ionic
+*/
+:root {
+  --ucsal-azul-marinho: #0b2a5b;
+  --ucsal-azul-marinho-escuro: #071d40;
+  --ucsal-azul-claro: #3fa9f5;
+  --ucsal-azul-claro-fundo: #e8f4fd;
+  --ucsal-branco: #ffffff;
+  --verde-pago: #2e9e5b;
+  --laranja-pagar: #f39c12;
+}
+
+/* ---------- classes do Ionic com as cores da UCSal ---------- */
+.bar.bar-positive,
+.button.button-positive {
+  background-color: var(--ucsal-azul-marinho);
+  border-color: var(--ucsal-azul-marinho-escuro);
+  color: var(--ucsal-branco);
+}
+
+.button.button-positive.activated {
+  background-color: var(--ucsal-azul-marinho-escuro);
+}
+
+.button.button-calm {
+  background-color: var(--ucsal-azul-claro);
+  border-color: var(--ucsal-azul-claro);
+  color: var(--ucsal-branco);
+}
+
+.button.button-outline.button-positive {
+  background: transparent;
+  color: var(--ucsal-azul-marinho);
+  border-color: var(--ucsal-azul-marinho);
+}
+
+.button.button-outline.button-positive.ativo {
+  background: var(--ucsal-azul-marinho);
+  color: var(--ucsal-branco);
+}
+
+.badge.badge-positive {
+  background-color: var(--ucsal-azul-claro);
+  color: var(--ucsal-branco);
+}
+
+.badge.badge-balanced {
+  background-color: var(--verde-pago);
+}
+
+.badge.badge-energized {
+  background-color: var(--laranja-pagar);
+  color: var(--ucsal-branco);
+}
+
+.positive {
+  color: var(--ucsal-azul-marinho) !important;
+}
+
+/* ---------- login ---------- */
+.login {
+  background: linear-gradient(160deg, var(--ucsal-azul-marinho), var(--ucsal-azul-claro));
+}
+
+.login-logo {
+  text-align: center;
+  color: var(--ucsal-branco);
+  padding: 40px 0 20px;
+}
+
+.login-logo h1 {
+  color: var(--ucsal-branco);
+  font-size: 30px;
+  font-weight: bold;
+  margin: 8px 0 4px;
+}
+
+.login-logo .icon {
+  font-size: 64px;
+}
+
+.login .list {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* fundo branco nos campos, pra não sumir no azul */
+.login .item {
+  background-color: var(--ucsal-branco);
+}
+
+.login .item .input-label {
+  color: var(--ucsal-azul-marinho);
+  font-weight: bold;
+}
+
+.dica {
+  color: var(--ucsal-branco);
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* ---------- menu lateral ---------- */
+.menu .bar.bar-positive {
+  height: 90px;
+}
+
+.menu .bar .title {
+  line-height: 1.3;
+  top: 22px;
+}
+
+.menu .bar .title small {
+  display: block;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.menu .has-header {
+  top: 90px;
+}
+
+/* ---------- mural ---------- */
+.card img.full-image {
+  width: 100%;
+  display: block;
+}
+
+.card .item-text-wrap h2 {
+  font-weight: bold;
+  color: var(--ucsal-azul-marinho);
+}
+
+/* no Ionic o badge fica preso no canto direito; aqui ele fica do lado da data */
+.card .item p .badge {
+  position: static;
+  display: inline-block;
+  width: auto;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* ---------- financeiro ---------- */
+.mensalidade h2 {
+  font-weight: bold;
+}
+
+.codigo {
+  font-family: monospace;
+  font-size: 12px;
+  color: #666;
+  word-break: break-all;
+  white-space: normal;
+}
+
+/* no computador o conteúdo não fica esticado na tela toda */
+@media (min-width: 768px) {
+  .limitar {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}

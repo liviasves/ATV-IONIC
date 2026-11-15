@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>Portal do Aluno UCSal</title>
+
+  <!-- Ionic v1 (CSS + ícones) -->
+  <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+  <!-- cores da UCSal e ajustes -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- ionic.bundle já traz junto o AngularJS, o ui-router e o próprio Ionic -->
+  <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+  <!-- idioma pt-BR do AngularJS: o currency vira R$ 1.289,90 e as datas saem em português -->
+  <script src="lib/angular-locale_pt-br.js"></script>
+
+  <!-- módulo principal e rotas -->
+  <script src="js/app.js"></script>
+
+  <!-- services: os dados mockados ficam aqui -->
+  <script src="js/services/AuthService.js"></script>
+  <script src="js/services/NoticiasService.js"></script>
+  <script src="js/services/AlunoService.js"></script>
+  <script src="js/services/FinanceiroService.js"></script>
+
+  <!-- controllers: a lógica de cada tela -->
+  <script src="js/controllers/LoginCtrl.js"></script>
+  <script src="js/controllers/MenuCtrl.js"></script>
+  <script src="js/controllers/NoticiasCtrl.js"></script>
+  <script src="js/controllers/PerfilCtrl.js"></script>
+  <script src="js/controllers/FinanceiroCtrl.js"></script>
+</head>
+
+<!-- ng-app liga o AngularJS no módulo ucsalApp -->
+<body ng-app="ucsalApp">
+  <!-- aqui o ui-router coloca a tela da rota atual -->
+  <ion-nav-view></ion-nav-view>
+</body>
+</html>
